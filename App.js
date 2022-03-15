@@ -4,6 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import Icon from "react-native-vector-icons/Ionicons";
+
 import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 
@@ -19,7 +21,21 @@ const HomeStackScreen = ({ navigation }) => (
       headerTitleStyle: { fontWeight: "bold" },
     }}
   >
-    <HomeStack.Screen name="Home" component={HomeScreen} />
+    <HomeStack.Screen
+      name="Home"
+      component={HomeScreen}
+      options={{
+        title: "Home",
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={30}
+            backgroundColor="#009387"
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
   </HomeStack.Navigator>
 );
 
@@ -31,7 +47,21 @@ const DetailsStackScreen = ({ navigation }) => (
       headerTitleStyle: { fontWeight: "bold" },
     }}
   >
-    <DetailsStack.Screen name="Details" component={DetailsScreen} />
+    <DetailsStack.Screen
+      name="Details"
+      component={DetailsScreen}
+      options={{
+        title: "Details",
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={30}
+            backgroundColor="#009387"
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
   </DetailsStack.Navigator>
 );
 
