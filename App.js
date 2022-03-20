@@ -10,12 +10,15 @@ import SupportScreen from "./screens/SupportScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 import BookmarkScreen from "./screens/BookmarkScreen";
 
+import RootStackScreen from "./screens/RootStackScreen";
+
 const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator
+      <RootStackScreen />
+      {/* <Drawer.Navigator
         drawerContent={(props) => <DrawerContent {...props} />}
         initialRouteName="Home"
       >
@@ -23,7 +26,7 @@ const App = () => {
         <Drawer.Screen name="SupportScreen" component={SupportScreen} />
         <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
         <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
-      </Drawer.Navigator>
+      </Drawer.Navigator> */}
     </NavigationContainer>
   );
 };
