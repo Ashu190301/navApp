@@ -13,8 +13,12 @@ import {
   Switch,
 } from "react-native-paper";
 
+import { AuthContext } from "../components/context";
+
 export function DrawerContent(props) {
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+
+  const { signOut } = React.useContext(AuthContext);
 
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
@@ -123,7 +127,9 @@ export function DrawerContent(props) {
             <Icon name="exit-to-app" color={color} size={size} />
           )}
           label="Sign Out"
-          onPress={() => {}}
+          onPress={() => {
+            signOut();
+          }}
         />
       </Drawer.Section>
     </View>

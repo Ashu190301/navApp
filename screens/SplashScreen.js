@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
-  Image,
+  StatusBar,
 } from "react-native";
 
 import * as Animatable from "react-native-animatable";
@@ -16,6 +16,7 @@ import MatrialIcons from "react-native-vector-icons/MaterialIcons";
 const SplashScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor="#009387" barStyle="light-content" />
       <View style={styles.header}>
         <Animatable.Image
           animation="bounceIn"
