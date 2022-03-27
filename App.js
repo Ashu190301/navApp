@@ -15,6 +15,8 @@ import { AuthContext } from "./components/context";
 
 import RootStackScreen from "./screens/RootStackScreen";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const Drawer = createDrawerNavigator();
 
 const App = () => {
@@ -66,18 +68,28 @@ const App = () => {
 
   const authcontext = React.useMemo(
     () => ({
-      signIn: (userName, password) => {
+      signIn: async (userName, password) => {
         // setUserToken("AUTH_TOKEN");
         // setIsLoading(false);
         let userToken = null;
         if (userName == "ashu" && password == "pass") {
-          userToken = "AUTH_TOKEN";
+          try {
+            userToken = "AUTH_TOKEN";
+            await AsyncStorage.setItem("userToken", userToken);
+          } catch (e) {
+            console.log(e);
+          }
         }
         dispatch({ type: "LOGIN", id: userName, token: userToken });
       },
-      signOut: () => {
+      signOut: async () => {
         // setUserToken(null);
         // setIsLoading(false);
+        try {
+          await AsyncStorage.removeItem("userToken");
+        } catch (e) {
+          console.log(e);
+        }
         dispatch({ type: "LOGOUT" });
       },
       signUp: () => {
@@ -89,9 +101,15 @@ const App = () => {
   );
 
   useEffect(() => {
-    setTimeout(() => {
+    setTimeout(async () => {
       // setIsLoading(false);
-      dispatch({ type: "RETRIEVE_TOKEN", token: "AToken" });
+      let userToken = null;
+      try {
+        userToken = await AsyncStorage.getItem("userToken");
+      } catch (e) {
+        console.log(e);
+      }
+      dispatch({ type: "RETRIEVE_TOKEN", token: userToken });
     }, 1000);
   }, []);
 
