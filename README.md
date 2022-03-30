@@ -18,7 +18,6 @@ Screens:
 - Profile Screen
 - Settings Screen
 - Explore Screen
-- 
 
 https://user-images.githubusercontent.com/53870345/160693099-622c21ee-4e59-46e6-9943-4efe1e3aacc8.mp4 
 
