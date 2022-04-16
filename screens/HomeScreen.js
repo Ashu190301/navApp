@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, StatusBar } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor="#009387" barStyle="light-content" />
       <Text>Home Screen</Text>
       <Button
         title="Go to Details"

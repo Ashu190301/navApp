@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, StatusBar } from "react-native";
 
 const DetailsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor="#1f65ff" barStyle="light-content" />
       <Text>Details Screen</Text>
       <Button
         title="Go to Details... again"

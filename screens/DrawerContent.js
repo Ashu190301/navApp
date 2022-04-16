@@ -112,7 +112,7 @@ export function DrawerContent(props) {
               }}
             >
               <View style={styles.preference}>
-                <Text>Dark Theme</Text>
+                <Text style={styles.btnText}>Dark Theme</Text>
                 <View pointerEvents="none">
                   <Switch value={isDarkTheme} />
                 </View>
@@ -179,5 +179,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingVertical: 12,
     paddingHorizontal: 16,
+  },
+  btnText: {
+    marginTop: 14,
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "gray",
   },
 });
